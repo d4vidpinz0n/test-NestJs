@@ -17,7 +17,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
-  @ApiBody({})
+  @ApiBody({ type: [CreateUserDto] })
   @ApiResponse({ status: 201, description: 'Se ha creado el usuario.'})
   @ApiResponse({ status: 500, description: 'Error interno.'})
   create(@Body() createUserDto: CreateUserDto) {
