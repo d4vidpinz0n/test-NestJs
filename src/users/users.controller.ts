@@ -29,12 +29,12 @@ export class UsersController {
   //   return this.usersService.findAll();
   // }
 
-  @Get(':id')
-  @ApiBody({})
+  @Get(':createdAt')
   @ApiResponse({ status: 200 })
   @ApiResponse({ status: 500 })
-  findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+  find(@Param('createdAt') createdAt: string) {
+    const _createdAt = new Date(createdAt);
+    return this.usersService.findAll(_createdAt);
   }
 
   // @Patch(':id')
